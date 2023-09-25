@@ -22,12 +22,11 @@ def show_main(request):
     products = Product.objects.filter(user=request.user)
 
     context = {
-        'name': request.user.username, # Your name
-        'class': 'PBP International Class', # Your PBP Class
-        'products': products,
-        'last_login': request.COOKIES['last_login'],
-    }
-
+            'name': request.user.username, # Your name
+            'class': 'PBP International Class', # Your PBP Class
+            'products': products,
+            'last_login': request.COOKIES['last_login'],
+        }
     return render(request, "main.html", context)
 
 def create_product(request):
