@@ -25,7 +25,9 @@ def show_main(request):
             'name': request.user.username, # Your name
             'class': 'PBP International Class', # Your PBP Class
             'products': products,
-            'last_login': request.COOKIES['last_login'],
+            'last_login': request.COOKIES['last_login']
+            if "last_login" in request.COOKIES.keys()
+            else "",
         }
     return render(request, "main.html", context)
 
